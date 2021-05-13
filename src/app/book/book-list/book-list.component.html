@@ -1,0 +1,28 @@
+<app-book-search (s)="findBookByName($event)"></app-book-search>
+<h1>Book List</h1>
+<button  type="button" class="btn btn-info hang" style="float: right"><a routerLink="/books/create">Create new book</a></button>
+
+<p>Quantity of books: {{listBook.length}}</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Id</th>
+      <th scope="col">Title</th>
+      <th scope="col">Author</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <ng-container *ngFor="let book of listBook; index as i">
+    <tr>
+      <td>{{i+1}}</td>
+      <td>{{book.id}}</td>
+      <td><a [routerLink]="['/books/detail',book.id]">{{book.title}}</a></td>
+      <td>{{book.author}}</td>
+      <td>{{book.description}}</td>
+      <td><button><a [routerLink]="['/books/edit',book.id]">Edit</a></button></td>
+      <td><button><a [routerLink]="['/books/delete',book.id]">Delete</a></button></td>
+    </tr>
+  </ng-container>
+</table>
+

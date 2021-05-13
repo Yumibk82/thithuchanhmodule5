@@ -1,0 +1,28 @@
+
+<form [formGroup]="bookForm" (ngSubmit)="deleteBook(id)">
+  <h1> Delete book</h1>
+  <table>
+    <tr hidden>
+      <td>Id</td>
+      <td><input type="number" formControlName="id"></td>
+      <td *ngIf="id?.errors?.required && id?.touched">Input data is required</td>
+    </tr>
+    <tr>
+      <td>Title</td>
+      <td><input type="text" formControlName="title"></td>
+    </tr>
+    <tr>
+      <td>Author</td>
+      <td><input type="text" formControlName="author"></td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td><input type="text" formControlName="description"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="submit" value="Delete"></td>
+    </tr>
+  </table>
+  <button><a routerLink="/books">Exit</a></button>
+</form>

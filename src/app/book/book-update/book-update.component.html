@@ -1,0 +1,27 @@
+<button><a routerLink="/books">Book list</a></button>
+<form [formGroup]="bookForm" (ngSubmit)="updateBookInfor(id)">
+  <h1> Show Update Form</h1>
+  <table>
+    <tr hidden>
+      <td>Id</td>
+      <td><input type="number" formControlName="id"></td>
+      <td *ngIf="id?.errors?.required && id?.touched">Input data is required</td>
+    </tr>
+    <tr>
+      <td>Title</td>
+      <td><input type="text" formControlName="title"></td>
+    </tr>
+    <tr>
+      <td>Author</td>
+      <td><input type="text" formControlName="author"></td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td><input type="text" formControlName="description"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="submit" value="Update"></td>
+    </tr>
+  </table>
+</form>
